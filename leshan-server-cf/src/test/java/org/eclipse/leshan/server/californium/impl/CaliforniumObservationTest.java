@@ -24,6 +24,7 @@ import org.eclipse.leshan.core.node.LwM2mPath;
 import org.eclipse.leshan.core.node.codec.DefaultLwM2mNodeDecoder;
 import org.eclipse.leshan.core.observation.Observation;
 import org.eclipse.leshan.server.californium.CaliforniumObservationRegistry;
+import org.eclipse.leshan.server.californium.CaliforniumRegistrationStore;
 import org.eclipse.leshan.server.impl.ClientRegistryImpl;
 import org.eclipse.leshan.server.model.StandardModelProvider;
 import org.junit.Assert;
@@ -35,15 +36,16 @@ public class CaliforniumObservationTest {
     Request coapRequest;
     LwM2mPath target;
     CaliforniumObservationRegistry registry;
-    InMemoryLwM2mObservationStore store;
+    CaliforniumRegistrationStore store;
 
     private CaliforniumTestSupport support = new CaliforniumTestSupport();
 
     @Before
     public void setUp() throws Exception {
         support.givenASimpleClient();
-        store = new InMemoryLwM2mObservationStore();
-        registry = new CaliforniumObservationRegistryImpl(store, new ClientRegistryImpl(), new StandardModelProvider(),
+        store = new InMemoryRegistrationStore();
+        registry = new CaliforniumObservationRegistryImpl(store, new ClientRegistryImpl(store),
+                new StandardModelProvider(),
                 new DefaultLwM2mNodeDecoder());
     }
 
