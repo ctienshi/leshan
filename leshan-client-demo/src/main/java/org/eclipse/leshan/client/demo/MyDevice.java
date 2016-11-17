@@ -18,6 +18,7 @@ import org.eclipse.leshan.core.response.ReadResponse;
 import org.eclipse.leshan.core.response.WriteResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.eclipse.leshan.client.demo.RunShellCommandFromJava;
 
 public class MyDevice extends BaseInstanceEnabler {
 
@@ -95,7 +96,8 @@ public class MyDevice extends BaseInstanceEnabler {
     }
 
     private String getManufacturer() {
-        return "Leshan Demo Device";
+
+        return RunShellCommandFromJava.getManufacturer();
     }
 
     private String getModelNumber() {
@@ -107,7 +109,8 @@ public class MyDevice extends BaseInstanceEnabler {
     }
 
     private String getFirmwareVersion() {
-        return "1.0.0";
+        String line = RunShellCommandFromJava.getFirmware();
+        return  line;
     }
 
     private long getErrorCode() {
