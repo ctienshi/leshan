@@ -42,4 +42,16 @@ public class RunShellCommandFromJava {
         }
         return null;
     }
+
+    public static void onBulb() {
+        String command = "sudo python /home/pi/LED.py";
+
+        try {
+            Process proc = Runtime.getRuntime().exec(command);
+            
+        } catch (IOException ex){
+            System.out.println(ex);
+        }
+
+    }
 }

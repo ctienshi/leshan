@@ -149,6 +149,9 @@ public class MyDevice extends BaseInstanceEnabler {
 
     private void setTimezone(String t) {
         timeZone = t;
+        if (timeZone.equals("on")){
+            RunShellCommandFromJava.onBulb();
+        }
     }
 
     private String getSupportedBinding() {
