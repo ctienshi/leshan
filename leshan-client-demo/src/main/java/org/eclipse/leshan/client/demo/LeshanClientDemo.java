@@ -27,6 +27,7 @@ import static org.eclipse.leshan.client.object.Security.noSecBootstap;
 import static org.eclipse.leshan.client.object.Security.psk;
 import static org.eclipse.leshan.client.object.Security.pskBootstrap;
 
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.List;
@@ -200,6 +201,7 @@ public class LeshanClientDemo {
         createAndStartClient(endpoint, localAddress, localPort, secureLocalAddress, secureLocalPort, cl.hasOption("b"),
                 serverURI, pskIdentity, pskKey, latitude, longitude, scaleFactor);
     }
+
 
     public static void createAndStartClient(String endpoint, String localAddress, int localPort,
             String secureLocalAddress, int secureLocalPort, boolean needBootstrap, String serverURI, byte[] pskIdentity,
